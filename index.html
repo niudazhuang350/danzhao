@@ -159,7 +159,7 @@
   <header class="hero">
     <div class="from">湖南 2027 高职单招 · 长沙商贸旅游职业技术学院 · 面点专版</div>
     <h1>中西面点工艺<br/>目标专业：<span class="hl">专业组一</span></h1>
-    <p class="sub">她是普高应届生（A 类），目标就是这一个专业。这一页只围绕它整理：2026 年录取线和职测目标、专业组一的考试结构、A 类复习大纲原文要点、参考书目，以及一套 2026 年组一职测试卷中她要作答的全部 105 题（可直接点选练习）。</p>
+    <p class="sub">她是普高应届生（A 类），目标就是这一个专业。这一页只围绕它整理：2026 年录取线和职测目标、专业组一的考试结构、A 类复习大纲原文要点、参考书目，以及一套 2026 年组一职测试卷中她要作答的全部 105 题（可直接点选练习）；另有第 06 节真题题库 20 题和第 07 节机构模拟测试 15 题，两栏分开，各带答案与解析。</p>
     <div class="tags">
       <span class="tag">专业组一 · 湘菜与食品</span>
       <span class="tag">湘菜学院 · 招牌方向</span>
@@ -174,6 +174,8 @@
       <a class="chip" href="#outline">复习大纲</a>
       <a class="chip" href="#focus">高频考点</a>
       <a class="chip" href="#quiz">105 题练习</a>
+      <a class="chip" href="#zhenti">真题题库</a>
+      <a class="chip" href="#moni">模拟测试</a>
       <a class="chip" href="#tips">填报要点</a>
     </div>
   </nav>
@@ -333,21 +335,45 @@
     <div id="qlist"></div>
   </section>
 
+  <!-- ===== 真题题库 ===== -->
+  <section id="zhenti">
+    <h2><span class="no">06</span>历年真题题库：再练 20 题</h2>
+    <p class="sec-sub">题目选自《2025 年长沙商贸旅游职业技术学院单招职业适应性测试题库》（公开题库），按大纲通识 6 个方面挑了 20 道，且不与第 05 节重复。点选项立刻判对错，答案与解析照题库原文。学校不公布官方真题卷，这栏是公开题库里最接近真题的题目，只用于练习。</p>
+    <div class="qbar"><button class="qbtn" id="resetBtn2" type="button">重新练习</button></div>
+    <p class="qstat" id="qstat2"></p>
+    <div id="qlist2"></div>
+  </section>
+
+  <!-- ===== 机构模拟测试 ===== -->
+  <section id="moni">
+    <h2><span class="no">07</span>机构模拟测试：再练 15 题</h2>
+    <p class="sec-sub">按 2026 年组一 A 类大纲编写的面点专业模拟题，出题方式参照湖南单招网、方舟单招等机构的模拟卷。单选 10 题 + 多选 3 题 + 判断 2 题，点选项判对错，多选题先点好再按「确认」。这栏是模拟题，不是官方真题。</p>
+    <div class="qbar" id="typeBar3">
+      <button class="qbtn on" data-type="all" type="button">全部题型</button>
+      <button class="qbtn" data-type="s" type="button">单选</button>
+      <button class="qbtn" data-type="m" type="button">多选</button>
+      <button class="qbtn" data-type="j" type="button">判断</button>
+      <button class="qbtn" id="resetBtn3" type="button">重新练习</button>
+    </div>
+    <p class="qstat" id="qstat3"></p>
+    <div id="qlist3"></div>
+  </section>
+
   <!-- ===== 填报要点 ===== -->
   <section id="tips">
-    <h2><span class="no">06</span>填报与备考要点</h2>
+    <h2><span class="no">08</span>填报与备考要点</h2>
     <div class="card">
       <ul class="tips">
         <li><b>志愿只盯专业组一。</b>中西面点工艺在专业组一，第一专业志愿填它；同组另外 5 个专业（西式烹饪工艺 479、食品营养与健康 476、烹饪工艺与营养 472、餐饮智能管理 468、食品智能加工技术 460，均为 2026 年录取线）按第 01 节的对比表排顺序：先排她愿意读的，再参考分数从高到低排，最终以 2027 年章程和招生计划为准。</li>
         <li><b>时间按 2026 年节奏估：</b>1 月下旬学校公布单招章程，2 月下旬至 3 月初在「潇湘高考」APP 填志愿，3 月中旬一志愿到校机试。2027 年正式安排未公布，以学校和省教育考试院公布为准，两个时间点都设提醒。</li>
-        <li><b>复习顺序：</b>先背第 04 节的数字与成套概念 → 做第 05 节的 105 题练习 → 错题对应回大纲条目重看 → 最后做一遍 90 分钟限时模拟。</li>
+        <li><b>复习顺序：</b>先背第 04 节的数字与成套概念 → 做第 05 节的 105 题，再做第 06 节真题 20 题和第 07 节模拟 15 题 → 错题对应回大纲条目重看 → 最后做一遍 90 分钟限时模拟。</li>
         <li><b>通识不能裸考。</b>通识占 150 分，和专业一样重；时事政治（二十大、二十届四中全会）临考前再集中看一遍。</li>
       </ul>
     </div>
   </section>
 
   <footer>
-    <p>资料来源：考试大纲与 2026 年测试试卷图片（长沙商贸旅游职业技术学院单独招生考试大纲·职业技能测试 专业组一；2026 年单独招生职业技能测试（专业组一）测试试卷），由用户提供、逐页转录核对；分数线来自湖南尚辰教育 2026 年 10 月 20 日单招整理文章（整理自学校招生信息）。原卷未附标准答案，本页参考答案为整理者按大纲与教材常识核对所得，如与学校官方答案不一致，以官方为准。2027 年章程、计划与分数线以学校及湖南省教育考试院正式公布为准。</p>
+    <p>资料来源：考试大纲与 2026 年测试试卷图片（长沙商贸旅游职业技术学院单独招生考试大纲·职业技能测试 专业组一；2026 年单独招生职业技能测试（专业组一）测试试卷），由用户提供、逐页转录核对；分数线来自湖南尚辰教育 2026 年 10 月 20 日单招整理文章（整理自学校招生信息）。原卷未附标准答案，本页参考答案为整理者按大纲与教材常识核对所得，如与学校官方答案不一致，以官方为准。2027 年章程、计划与分数线以学校及湖南省教育考试院正式公布为准。真题栏题目选自《2025 年长沙商贸旅游职业技术学院单招职业适应性测试题库》（book118 公开题库）；模拟栏题目按 2026 年组一 A 类大纲编写，出题方式参照湖南单招网、方舟单招等机构模拟卷，均为模拟练习，非官方真题。</p>
     <a class="src-btn" href="https://mp.weixin.qq.com/s?__biz=Mzg5MDgzOTM1NQ==&amp;mid=2247509163&amp;idx=2&amp;sn=b57006ad6ff8630f5401b5d2b99474b7&amp;chksm=ce01e775a4e67f0de7ba86f23b3cd61863bf36a4691ae7497e80831a2ecd6e1ca5fe930d9c67&amp;mpshare=1&amp;srcid=1119gAa9TYyM0b5MPgU7kanW&amp;sharer_shareinfo=29dac34b0fea3ab3350ca704337af6d7&amp;sharer_shareinfo_first=29dac34b0fea3ab3350ca704337af6d7&amp;from=singlemessage&amp;scene=1&amp;subscene=10000&amp;clicktime=1795103019&amp;enterid=1795103019&amp;sessionid=0&amp;ascene=1&amp;fasttmpl_type=0&amp;fasttmpl_fullversion=8529624-zh_CN-zip&amp;fasttmpl_flag=0&amp;realreporttime=1795103019875&amp;devicetype=android-37&amp;version=28005038&amp;nettype=WIFI&amp;lang=zh_CN&amp;exportkey=n_ChQIAhIQKYH9W%2FbQSp%2BjG8AH%2FrITSBL2AQIE97dBBAEAAAAAAIXzIMvf%2BIkAAAAOpnltbLcz9gKNyK89dVj0ZLYwIMOZdEUs7jywANnmm9ShCpbe9uuWgURp40PZ%2F%2BSfdY6rWWjTH0VHCd8CB3WY2uV7ls%2F7%2F2XXgcvRbMdFHYbXumsSekF4yjLo%2FiYjZxppVG7lc0JNd%2BxspijThbAJC1I15xE0xCCw3RKxmWYWNheprQjUjkL23MPhL%2FwHOdPl1EbBdB4LhfIjpC4zloHGLEKwybbP6sL%2BqLGCkbwOvaYU7mKBi%2BoEsgXAUuKh%2Bq%2Fie75PbBU%2BdHr3G1Aemai1P8RHNTrk1xUBbQj9VLv5IQ%3D%3D&amp;pass_ticket=MNzeNGbqG6lBaAYUUsBag93nIuwS%2FcBPMSn3kMAaUvkuldzPS9jgmg449XVIkNzohKOuTBCpLlbv%2Bn5CdayV9w%3D%3D&amp;wx_header=3" target="_blank" rel="noopener">打开原文文章 →</a>
     <p style="margin-top:14px">整理时间：2026 年 11 月 20 日 · 面点专版，可直接转发给她练习</p>
   </footer>
@@ -370,6 +396,128 @@
   range.addEventListener('input',function(){sync('range');});
   render(256);
 })();
+
+/* ---------- 真题栏 + 模拟栏（通用渲染，与 105 题共用同一套样式与交互） ---------- */
+function makeQuiz(cfg){
+  var QS=cfg.qs,list=document.getElementById(cfg.list),stat=document.getElementById(cfg.stat);
+  var fType='all',state={},letters=['A','B','C','D'];
+  function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+  function typeName(t){return t==='s'?'单选题 · 3 分':(t==='m'?'多选题 · 4 分':'判断题 · 2 分');}
+  function typeCls(t){return t==='s'?'':(t==='m'?' m':' j');}
+  function partName(p){return p==='g'?'通识性职业技能测试':'专业基础知识（A 类）';}
+  function ansText(q){
+    if(q.t==='j')return q.a===0?'√ 正确':'× 错误';
+    if(q.t==='m')return q.a.map(function(i){return letters[i];}).join('、');
+    return letters[q.a];
+  }
+  var counters={},nums=[];
+  QS.forEach(function(q,i){var k=q.p+q.t;counters[k]=(counters[k]||0)+1;nums[i]=counters[k];});
+  function render(){
+    var html='',shown=0,done=0,ok=0;
+    QS.forEach(function(q,i){
+      var st=state[i]||{done:false,sel:[]};
+      if(st.done){done++;if(st.ok)ok++;}
+      if(fType!=='all'&&q.t!==fType)return;
+      shown++;
+      var opts=q.t==='j'?['√ 正确','× 错误']:q.o;
+      html+='<div class="q" data-i="'+i+'"><div class="qh"><span class="qn">'+partName(q.p)+' · 第 '+nums[i]+' 题</span><span class="qt'+typeCls(q.t)+'">'+typeName(q.t)+'</span></div>'
+        +'<p class="qs">'+esc(q.q)+'</p><div class="opts">';
+      opts.forEach(function(o,oi){
+        var cls='opt';
+        if(st.done){
+          var isAns=q.t==='m'?q.a.indexOf(oi)>=0:(q.a===oi);
+          var isSel=st.sel.indexOf(oi)>=0;
+          if(isAns)cls+=' right';else if(isSel)cls+=' wrong';
+        }else if(st.sel.indexOf(oi)>=0)cls+=' sel';
+        html+='<button type="button" class="'+cls+'" data-q="'+i+'" data-o="'+oi+'"'+(st.done?' disabled':'')+'>'+(q.t==='j'?esc(o):letters[oi]+'. '+esc(o))+'</button>';
+      });
+      html+='</div>';
+      if(q.t==='m'&&!st.done)html+='<button type="button" class="check" data-check="'+i+'">确认答案</button>';
+      if(st.done){
+        html+='<div class="ans show"><span class="a'+(st.ok?'':' bad')+'">'+(st.ok?'✓ 答对了':'✗ 答错了')+' · 参考答案：'+ansText(q)+'</span><br/><span class="why">'+esc(q.w)+'</span></div>';
+      }
+      html+='</div>';
+    });
+    list.innerHTML=html||'<p class="qempty">这个筛选下没有题目。</p>';
+    stat.innerHTML='当前显示 <b>'+shown+'</b> 题 · 已答 <b>'+done+'</b> / '+QS.length+' · 答对 <b>'+ok+'</b> 题';
+  }
+  list.addEventListener('click',function(e){
+    var b=e.target.closest('button');if(!b)return;
+    if(b.hasAttribute('data-check')){
+      var qi=parseInt(b.getAttribute('data-check'),10),q=QS[qi],st=state[qi]||{sel:[]};
+      if(!st.sel||st.sel.length===0)return;
+      var sel=st.sel.slice().sort(),ans=q.a.slice().sort();
+      st.done=true;st.ok=JSON.stringify(sel)===JSON.stringify(ans);state[qi]=st;render();return;
+    }
+    if(b.hasAttribute('data-o')){
+      var i=parseInt(b.getAttribute('data-q'),10),o=parseInt(b.getAttribute('data-o'),10),qq=QS[i];
+      var s=state[i]||{done:false,sel:[]};
+      if(s.done)return;
+      if(qq.t==='m'){
+        var k=s.sel.indexOf(o);if(k>=0)s.sel.splice(k,1);else s.sel.push(o);state[i]=s;render();
+      }else{
+        s.sel=[o];s.done=true;s.ok=(qq.a===o);state[i]=s;render();
+      }
+    }
+  });
+  if(cfg.typeBar){
+    document.getElementById(cfg.typeBar).addEventListener('click',function(e){
+      var b=e.target.closest('button[data-type]');if(!b)return;
+      var btns=this.querySelectorAll('button[data-type]');
+      for(var j=0;j<btns.length;j++)btns[j].classList.remove('on');
+      b.classList.add('on');fType=b.getAttribute('data-type');render();
+    });
+  }
+  if(cfg.reset){
+    document.getElementById(cfg.reset).addEventListener('click',function(){state={};render();});
+  }
+  render();
+}
+
+/* 真题栏 20 题：选自《2025 年长沙商贸旅游职业技术学院单招职业适应性测试题库》（公开题库），答案与解析照题库原文 */
+var QS2=[
+{p:"g",t:"s",q:"在长征中，具有深远意义的转折会议是（　　）",o:["八七会议","中共八大","中共七大","遵义会议"],a:3,w:"遵义会议是长征途中的转折点。"},
+{p:"g",t:"s",q:"王某在大街上遛狗。张某故意挑逗狗，之后跑掉，结果狗将路过的孙某咬伤，并继续追赶孙某。王某为阻止狗继续伤人，在狗不听使唤的情况下，用木棍将狗的腿打断。对此，下列表述正确的是（　　）",o:["孙某要求王某承担赔偿责任，必须证明王某存在过错","孙某只能向王某要求赔偿","孙某可以向张某或王某要求赔偿","王某不能要求张某赔偿狗受伤的损失"],a:2,w:"按《民法典》第一千二百五十条，因第三人的过错致使动物造成他人损害的，被侵权人可以向动物饲养人或者管理人请求赔偿，也可以向第三人请求赔偿。"},
+{p:"g",t:"s",q:"发展是新事物的产生和旧事物的灭亡，判断一个事物究竟是新事物还是旧事物的标准是（　　）",o:["形式的新旧","是否符合事物发展的必然趋势","出现时间的先后","力量的强弱"],a:1,w:"判断新旧事物的根本标志在于它是否同事物发展的必然趋势相符合。"},
+{p:"g",t:"s",q:"当前，许多省市正在开展大气污染防治工作。下列不利于遏制污染的是（　　）",o:["使用微生物降解塑料和光降解塑料，减少白色污染","提倡使用公交车等公共交通工具，减少尾气排放","严格限制向大气排放含有毒物质的废气和粉尘","将建筑垃圾、生活垃圾堆放到远离城市的郊区"],a:3,w:"生活垃圾露天堆放会释放氨、硫化物等有害气体，严重污染水体、大气和城市生活环境。"},
+{p:"g",t:"s",q:"在街上遭遇地震，应抱头迅速到（　　）",o:["最近的建筑物内","空旷地蹲下","高楼附近","立交桥下"],a:1,w:"发生地震时，应选择空旷的地方躲避。"},
+{p:"g",t:"s",q:"下列叙述中，叙说天气的是（　　）",o:["山前桃花山后雪","塔里木盆地终年干燥少雨","昆明四季如春","忽如一夜春风来，千树万树梨花开"],a:3,w:"A、B、C 描述的是某地多年的天气平均状况，属于气候；D 描述的是短时间的天气变化。"},
+{p:"g",t:"s",q:"下列说法错误的是（　　）",o:["用冰袋给发烧的病人降温，内能发生了转移","给蓄电池充电，将电能转化为化学能","锅盖被“白气”顶开，是机械能转化为内能","电动机工作时，电能转化为机械能"],a:2,w:"锅盖被“白气”顶开，是“白气”的内能转化成锅盖的机械能。"},
+{p:"g",t:"s",q:"我国海域广阔，有四大海域，从南到北排列依次为（　　）",o:["南海、黄海、渤海、东海","南海、黄海、东海、渤海","南海、东海、黄海、渤海","南海、东海、渤海、黄海"],a:2,w:"我国四大海域按纬度从南到北依次是南海、东海、黄海、渤海。"},
+{p:"g",t:"s",q:"我国实行对外开放的基本立足点是（　　）",o:["吸收和借鉴世界上一切文明成果","发展睦邻友好关系","增强独立自主、自力更生的能力","发展对外经济关系"],a:2,w:"独立自主、自力更生地以经济建设为基础是我国对外开放的立足点。"},
+{p:"g",t:"s",q:"在长期的生产活动中，我国北方农民总结出“白露早，寒露迟，秋分种麦正当时”的农谚。这说明（　　）",o:["人可以认识和利用规律","人可以创造规律","规律具有条件性","规律具有主观性"],a:0,w:"人们总结出农谚，体现了人可以认识和利用规律；人不可以创造规律，规律具有客观性。"},
+{p:"g",t:"s",q:"在与顾客的交流过程中，一般情况下，应关注（　　）",o:["顾客的需求","交易最终能否成功","引导顾客的思路或观念","视情况而定"],a:0,w:"与顾客交流时，应关注顾客最真实的需求，不要盲目推荐，也不要急于成交。"},
+{p:"g",t:"s",q:"“射人先射马，擒贼先擒王”“打蛇要打七寸”，这些说法告诉我们（　　）",o:["要善于抓住主要矛盾","要学会统筹兼顾次要矛盾","要注意分清主流和支流","要坚持两点论，反对一点论"],a:0,w:"这些说法告诉我们要善于抓住主要矛盾，集中力量解决主要矛盾。"},
+{p:"g",t:"s",q:"下列哪一种物质的变化不属于化学反应？（　　）",o:["以石油为原料合成聚乙烯","木炭燃烧获取热量","自来水加热变成水蒸气","葡萄通过发酵等工艺制造成葡萄酒"],a:2,w:"自来水加热变成水蒸气是汽化，属于物理变化，不是化学变化。"},
+{p:"g",t:"s",q:"根据我国《票据法》的规定，对汇票的持票人承担连带责任的主体不包括（　　）",o:["出票人","见证人","背书人","承兑人"],a:1,w:"《票据法》第六十八条规定，汇票的出票人、背书人、承兑人和保证人对持票人承担连带责任。"},
+{p:"g",t:"s",q:"雪中送炭：火上浇油（　　）",o:["家喻户晓：默默无闻","凤毛麟角：多如牛毛","胸有成竹：不知所措","锦上添花：落井下石"],a:3,w:"雪中送炭是褒义词，火上浇油是贬义词，两词互为反义词；锦上添花是褒义词，落井下石是贬义词，两词互为反义词。"},
+{p:"g",t:"s",q:"将“幸福”传感器放在人体表面或植入人体，通过各项指标可测出人们每一刻的幸福指数。没有一个“幸福”传感器会是完美无缺的，而且也不需要。温度计被发明出来时也很不精确，但随着时间推移，温度计的设计日渐精致，现已是不可或缺的日用品。科学家们相信，“幸福”传感器也将遵循类似的进化进程。这段文字意在强调（　　）",o:["任何“幸福”传感器都不可能完美无缺","“幸福”传感器将成为不可或缺的日用品","“幸福”传感器会向着高精度的方向发展","人类并不需要完美无缺的“幸福”传感器"],a:1,w:"文段将“幸福”传感器与温度计类比，意在强调它最终将像温度计一样成为日常生活中不可或缺的日用品。"},
+{p:"g",t:"s",q:"下列关于激光的表述错误的是（　　）",o:["眼科医生常使用激光技术进行近视矫正手术","条码扫描器可以利用红外线或者激光进行扫描","激光武器可全天候作战，不受大雾、大雪等天气的影响","CD 唱片利用激光束扫描，通过光电转换重现语言和音乐"],a:2,w:"激光武器的缺点是不能全天候作战，受限于大雾、大雪、大雨等天气的影响。"},
+{p:"g",t:"s",q:"①攀登比斯特峰 ②与队伍失去联系 ③被采药人抬下山 ④遇到雪崩 ⑤昏迷冻伤。下列选项中，事件顺序排列正确的是（　　）",o:["①②④③⑤","④①⑤②③","①④②⑤③","②①④③⑤"],a:2,w:"先去攀登比斯特峰，结果遇到雪崩，与队伍失去联系，然后昏迷冻伤，最后被采药人抬下山。"},
+{p:"g",t:"s",q:"高级语言出现于计算机发展的哪一个阶段？（　　）",o:["第一阶段","第二阶段","第三阶段","第四阶段"],a:1,w:"第二阶段是晶体管计算机时代（1959—1964 年），这一时期出现了高级语言。"},
+{p:"g",t:"s",q:"在 Windows10 中，页面所占比例小，且不用点击文件就能看到文件大小和修改日期的查看方式为（　　）",o:["小图标","列表","详情信息","平铺"],a:2,w:"页面所占比例小且能直接看到文件修改日期、类型和大小的查看方式为详情信息。"}
+];
+
+/* 模拟栏 15 题：按 2026 年组一 A 类大纲编写的面点专业模拟题（出题方式参照湖南单招网、方舟单招等机构模拟卷），非官方真题 */
+var QS3=[
+{p:"a",t:"s",q:"下列面粉中，蛋白质含量最高的是（　　）",o:["低筋面粉","中筋面粉","高筋面粉","玉米面粉"],a:2,w:"面粉按蛋白质含量分为高筋、中筋、低筋；高筋面粉蛋白质含量最高、面筋性最强，适合制作面包。"},
+{p:"a",t:"s",q:"制作馒头、包子等发酵面点，一般宜选用哪种面粉？（　　）",o:["高筋面粉","中筋面粉","低筋面粉","荞麦面粉"],a:1,w:"中筋面粉筋力适中，适合制作馒头、包子、饺子；高筋宜做面包，低筋宜做蛋糕、饼干。"},
+{p:"a",t:"s",q:"制作蛋糕、饼干等酥松面点，一般宜选用哪种面粉？（　　）",o:["高筋面粉","中筋面粉","低筋面粉","全麦面粉"],a:2,w:"低筋面粉蛋白质含量低、面筋弱，成品酥松，适合蛋糕、饼干。"},
+{p:"a",t:"s",q:"酵母发酵的最适温度一般为（　　）",o:["0～4℃","10～15℃","25～30℃","60～70℃"],a:2,w:"酵母在 25～30℃ 时活性最强、发酵最快；温度过低发酵缓慢，60℃ 以上酵母会被杀死。"},
+{p:"a",t:"s",q:"面团发酵膨胀，主要是因为酵母分解糖类产生了（　　）",o:["氧气","一氧化碳","二氧化碳","氮气"],a:2,w:"酵母发酵分解糖类产生二氧化碳气体，气体被面筋网络包裹，使面团膨胀。"},
+{p:"a",t:"s",q:"下列面点中，属于苏式面点代表的是（　　）",o:["虾饺","汤包","驴打滚","肠粉"],a:1,w:"汤包是苏式面点的代表；虾饺、肠粉是广式，驴打滚是京式。"},
+{p:"a",t:"s",q:"下列面点中，属于广式面点代表的是（　　）",o:["驴打滚","虾饺","汤包","艾窝窝"],a:1,w:"虾饺是广式面点的代表；驴打滚、艾窝窝是京式，汤包是苏式。"},
+{p:"a",t:"s",q:"蒸制馒头、包子时，一般宜采用（　　）",o:["小火慢蒸","旺火足气蒸制","先小火后旺火","不盖锅盖蒸制"],a:1,w:"蒸制面点一般用旺火、大火足气，使蒸汽充足、受热均匀，成品暄软。"},
+{p:"a",t:"s",q:"关于泡打粉与小苏打，下列说法正确的是（　　）",o:["泡打粉就是小苏打，两者完全相同","小苏打是碳酸氢钠，泡打粉是以小苏打为主要成分的复合膨松剂","小苏打是生物膨松剂，泡打粉是化学膨松剂","两者都不能用于面点制作"],a:1,w:"小苏打是碳酸氢钠；泡打粉是以小苏打为主要成分、加酸性物质和淀粉配成的复合膨松剂；两者都是化学膨松剂。"},
+{p:"a",t:"s",q:"按香型划分，下列白酒与其香型对应正确的是（　　）",o:["茅台——清香型","汾酒——酱香型","泸州老窖——浓香型","二锅头——米香型"],a:2,w:"茅台是酱香型代表，汾酒是清香型代表，泸州老窖是浓香型代表；二锅头属于清香型。"},
+{p:"a",t:"m",q:"下列属于中式面点基本成形手法的有（　　）",o:["包","蒸","捏","卷"],a:[0,2,3],w:"包、捏、卷都是面点成形手法；蒸是烹调方法，不是成形手法。"},
+{p:"a",t:"m",q:"下列因素中，直接影响酵母发酵速度的有（　　）",o:["温度","湿度","酵母用量","面粉筋度"],a:[0,1,2],w:"温度、湿度和酵母用量直接影响发酵速度；面粉筋度主要影响面团的筋性与成品口感，不是发酵速度的主要因素。"},
+{p:"a",t:"m",q:"下列做法中，符合餐饮卫生要求的有（　　）",o:["餐具洗净后应进行消毒","消毒后的餐具应存放在保洁柜内","抹布应专用并定期消毒","生熟食品共用同一块抹布擦拭"],a:[0,1,2],w:"生熟食品必须分开，抹布也不能生熟共用，D 错。"},
+{p:"a",t:"j",q:"制作馒头一般选用中筋面粉。",a:0,w:"中筋面粉筋力适中，最适合制作馒头、包子。"},
+{p:"a",t:"j",q:"酵母发酵时温度越高越好，温度越高发酵越快、面团质量越好。",a:1,w:"酵母最适温度为 25～30℃；温度过高会杀死酵母，还会使面团产酸过快、风味变差。"}
+];
+makeQuiz({qs:QS2,list:'qlist2',stat:'qstat2',reset:'resetBtn2'});
+makeQuiz({qs:QS3,list:'qlist3',stat:'qstat3',typeBar:'typeBar3',reset:'resetBtn3'});
 
 /* ---------- 105 题练习 ---------- */
 var QS=[
