@@ -1,0 +1,569 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="light dark" />
+<link rel="icon" href="data:," />
+<title>中西面点工艺单招专版 · 专业组一</title>
+<style>
+  :root{
+    --bg:#f6f4ef;--surface:#ffffff;--surface-2:#fbf9f4;
+    --ink:#1c2420;--ink-2:#4a554f;--ink-3:#7a857f;--line:#e5e0d3;
+    --brand:#0f5c4d;--brand-soft:#e3efe9;
+    --accent:#c96a1e;--accent-soft:#fbeedd;
+    --danger:#b3352b;--danger-soft:#fbeae8;
+    --ok:#1d7a4f;--ok-soft:#e4f2e9;
+    --gold:#8a6d1b;--gold-soft:#f7efcf;
+    --radius:14px;--shadow:0 1px 2px rgba(28,36,32,.05),0 8px 24px rgba(28,36,32,.06);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#131816;--surface:#1c2320;--surface-2:#202824;
+      --ink:#eef2ef;--ink-2:#b9c4be;--ink-3:#8b9791;--line:#2e3833;
+      --brand:#5fc4a8;--brand-soft:#1d332c;
+      --accent:#f0a05a;--accent-soft:#3a2a18;
+      --danger:#f08a80;--danger-soft:#3a2320;
+      --ok:#6fd39a;--ok-soft:#1d3327;
+      --gold:#e3c86a;--gold-soft:#33301c;
+      --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+    }
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",sans-serif;
+    font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+  button,select,summary,input:not([type="checkbox"],[type="radio"]){min-height:2.25rem}
+  a{color:var(--brand)}
+  .wrap{max-width:680px;margin:0 auto;padding:0 16px 44px}
+
+  .hero{padding:26px 0 6px}
+  .hero .from{font-size:13px;color:var(--ink-3)}
+  .hero h1{font-size:29px;line-height:1.28;margin:8px 0 6px;font-weight:800;letter-spacing:-.01em}
+  .hero h1 .hl{color:var(--brand)}
+  .hero .sub{color:var(--ink-2);font-size:15px;margin:0}
+  .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+  .tag{font-size:13px;font-weight:600;padding:5px 11px;border-radius:999px;background:var(--brand-soft);color:var(--brand)}
+  .tag.warn{background:var(--accent-soft);color:var(--accent)}
+  .tag.hot{background:var(--danger-soft);color:var(--danger)}
+
+  .chips{position:sticky;top:0;z-index:20;background:var(--bg);padding:12px 0 8px;margin:0 -16px;padding-left:16px;padding-right:16px}
+  .chips-in{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+  .chips-in::-webkit-scrollbar{display:none}
+  .chip{flex:0 0 auto;text-decoration:none;color:var(--ink-2);background:var(--surface);border:1px solid var(--line);font-size:14px;font-weight:600;padding:8px 14px;border-radius:999px;min-height:36px;display:inline-flex;align-items:center}
+
+  section{margin-top:30px;scroll-margin-top:64px}
+  h2{font-size:20px;font-weight:800;margin:0 0 4px;display:flex;align-items:baseline;gap:8px}
+  h2 .no{font-size:13px;color:var(--accent);font-weight:800}
+  .sec-sub{color:var(--ink-2);font-size:14px;margin:0 0 14px}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px}
+  .card + .card{margin-top:10px}
+
+  /* target */
+  .target{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+  .tbox{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:13px 6px;text-align:center;box-shadow:var(--shadow)}
+  .tbox b{display:block;font-size:24px;line-height:1.15;font-weight:800}
+  .tbox span{font-size:12.5px;color:var(--ink-3)}
+  .tbox.goal b{color:var(--brand)}
+  .tbox.need b{color:var(--danger)}
+  .calc-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:14px}
+  .calc-head label{font-weight:700;font-size:15px}
+  .score-ctl{display:flex;align-items:center;gap:10px}
+  .score-ctl input[type="number"]{width:76px;font-size:18px;font-weight:800;text-align:center;border:1.5px solid var(--brand);border-radius:10px;padding:6px 4px;background:var(--surface);color:var(--ink)}
+  .score-ctl span{color:var(--ink-3);font-size:13px}
+  input[type="range"]{width:100%;accent-color:var(--brand);margin:10px 0 2px;min-height:36px}
+  .calc-out{font-size:15px;margin:8px 0 0}
+  .calc-out b{color:var(--danger);font-size:19px}
+  .calc-note{font-size:13px;color:var(--ink-3);margin:6px 0 0}
+
+  /* tables */
+  table{width:100%;border-collapse:collapse;font-size:14.5px}
+  th,td{padding:9px 8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+  th{font-size:13px;color:var(--ink-3);font-weight:700;border-bottom:2px solid var(--line)}
+  tr:last-child td{border-bottom:none}
+  td.n,th.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .sum td{font-weight:800}
+
+  .rule{display:flex;gap:12px;background:var(--danger-soft);border-radius:var(--radius);padding:13px 14px;align-items:flex-start;margin-top:10px}
+  .rule .n{flex:0 0 auto;width:26px;height:26px;border-radius:50%;background:var(--danger);color:#fff;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center;margin-top:1px}
+  .rule p{margin:0;font-size:14.5px}
+  .rule p b{color:var(--danger)}
+  .okbox{background:var(--ok-soft);border-radius:var(--radius);padding:13px 14px;font-size:14.5px;margin-top:10px}
+  .warnbox{background:var(--gold-soft);border-radius:var(--radius);padding:13px 14px;font-size:14.5px;margin-top:10px}
+  .warnbox b{color:var(--gold)}
+
+  /* outline */
+  .mod{margin-top:16px}
+  .mod:first-of-type{margin-top:4px}
+  .mod h3{font-size:16.5px;margin:0 0 8px;display:flex;gap:8px;align-items:baseline}
+  .mod h3 .k{font-size:12px;font-weight:800;color:#fff;background:var(--brand);border-radius:6px;padding:2px 7px;flex:0 0 auto}
+  @media (prefers-color-scheme: dark){.mod h3 .k{color:#0d1512}}
+  ol.outline{margin:0;padding-left:22px}
+  ol.outline li{margin:6px 0;font-size:14.8px}
+  ol.outline li::marker{color:var(--accent);font-weight:700}
+  .key{color:var(--danger);font-weight:700}
+  .books{margin:0;padding-left:20px}
+  .books li{margin:7px 0;font-size:14.5px}
+  .books .isbn{color:var(--ink-3);font-size:13px}
+  .star{color:var(--accent);font-weight:800}
+
+  ul.tips{margin:0;padding-left:20px}
+  ul.tips li{margin:7px 0;font-size:15px}
+  ul.tips li::marker{color:var(--accent);font-weight:800}
+  .freq{display:grid;gap:8px}
+  .freq .f{background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:14.5px}
+  .freq .f b{color:var(--brand)}
+
+  /* quiz */
+  .qbar{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+  .qbtn{border:1px solid var(--line);background:var(--surface);color:var(--ink-2);font-size:14px;font-weight:600;padding:8px 13px;border-radius:999px;cursor:pointer;min-height:38px}
+  .qbtn.on{background:var(--brand);border-color:var(--brand);color:#fff}
+  @media (prefers-color-scheme: dark){.qbtn.on{color:#0d1512}}
+  .qstat{font-size:14px;color:var(--ink-2);margin:0 0 12px}
+  .qstat b{color:var(--brand)}
+  .q{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:14px 16px;margin-bottom:10px}
+  .q .qh{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px}
+  .q .qn{font-weight:800;font-size:14px;color:var(--accent)}
+  .q .qt{font-size:11.5px;font-weight:700;padding:2px 8px;border-radius:99px;background:var(--brand-soft);color:var(--brand)}
+  .q .qt.m{background:var(--accent-soft);color:var(--accent)}
+  .q .qt.j{background:var(--gold-soft);color:var(--gold)}
+  .q .qs{font-size:15.5px;font-weight:600;margin:0 0 10px}
+  .opts{display:grid;gap:7px}
+  .opt{text-align:left;border:1.5px solid var(--line);background:var(--surface-2);color:var(--ink);border-radius:10px;padding:10px 12px;font-size:14.8px;cursor:pointer;line-height:1.5;min-height:44px}
+  .opt.sel{border-color:var(--brand);background:var(--brand-soft)}
+  .opt.right{border-color:var(--ok);background:var(--ok-soft)}
+  .opt.wrong{border-color:var(--danger);background:var(--danger-soft)}
+  .opt:disabled{cursor:default;opacity:1}
+  .check{margin-top:9px;background:var(--brand);color:#fff;border:none;border-radius:10px;padding:9px 18px;font-size:14.5px;font-weight:700;cursor:pointer;min-height:42px}
+  @media (prefers-color-scheme: dark){.check{color:#0d1512}}
+  .ans{display:none;margin-top:10px;border-top:1px dashed var(--line);padding-top:9px;font-size:14px}
+  .ans.show{display:block}
+  .ans .a{font-weight:800;color:var(--ok)}
+  .ans .a.bad{color:var(--danger)}
+  .ans .why{color:var(--ink-2)}
+  .qempty{font-size:14.5px;color:var(--ink-3);text-align:center;padding:18px 0}
+
+  footer{margin-top:34px;border-top:1px solid var(--line);padding-top:16px;font-size:13px;color:var(--ink-3)}
+  footer a{word-break:break-all}
+  .src-btn{display:inline-flex;align-items:center;gap:6px;margin-top:10px;background:var(--brand);color:#fff;text-decoration:none;font-weight:700;font-size:14.5px;padding:10px 18px;border-radius:10px;min-height:44px}
+  @media (prefers-color-scheme: dark){.src-btn{color:#0d1512}}
+  @media (max-width:380px){.hero h1{font-size:25px}.tbox b{font-size:20px}}
+  @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ===== 头部 ===== -->
+  <header class="hero">
+    <div class="from">湖南 2027 高职单招 · 长沙商贸旅游职业技术学院 · 面点专版</div>
+    <h1>中西面点工艺<br/>目标专业：<span class="hl">专业组一</span></h1>
+    <p class="sub">她是普高应届生（A 类），目标就是这一个专业。这一页只围绕它整理：2026 年录取线和职测目标、专业组一的考试结构、A 类复习大纲原文要点、参考书目，以及一套 2026 年组一职测试卷中她要作答的全部 105 题（可直接点选练习）。</p>
+    <div class="tags">
+      <span class="tag">专业组一 · 湘菜与食品</span>
+      <span class="tag">湘菜学院 · 招牌方向</span>
+      <span class="tag hot">2026 录取线 487 分 · 全校最高</span>
+    </div>
+  </header>
+
+  <nav class="chips" aria-label="本页导航">
+    <div class="chips-in">
+      <a class="chip" href="#target">目标分数</a>
+      <a class="chip" href="#struct">考试结构</a>
+      <a class="chip" href="#outline">复习大纲</a>
+      <a class="chip" href="#focus">高频考点</a>
+      <a class="chip" href="#quiz">105 题练习</a>
+      <a class="chip" href="#tips">填报要点</a>
+    </div>
+  </nav>
+
+  <!-- ===== 目标 ===== -->
+  <section id="target">
+    <h2><span class="no">01</span>目标分数：职测要考 231 分</h2>
+    <p class="sec-sub">A 类总分 600 = 学考语数外折算 300（她的 256 分已定，不用再考文化课）+ 职业技能测试 300。下面按 2026 年中西面点工艺录取线 487 分换算。</p>
+    <div class="target">
+      <div class="tbox"><b>487</b><span>2026 录取线 / 600</span></div>
+      <div class="tbox dual"><b>256</b><span>她的学考 / 300</span></div>
+      <div class="tbox need"><b>231</b><span>职测目标 / 300</span></div>
+    </div>
+    <div class="card" style="margin-top:10px">
+      <div class="calc-head">
+        <label for="scoreNum">换个学考分数试算</label>
+        <div class="score-ctl">
+          <input type="number" id="scoreNum" min="0" max="300" step="1" value="256" inputmode="numeric" aria-label="学考成绩" />
+          <span>/ 300 分</span>
+        </div>
+      </div>
+      <input type="range" id="scoreRange" min="0" max="300" step="1" value="256" aria-label="学考成绩滑杆" />
+      <p class="calc-out" id="calcOut"></p>
+      <p class="calc-note">职测 300 分由通识 150 分 + 专业基础 150 分组成，两部分各约占一半：目标 231 分，相当于两部分平均都要拿到约 77%，任何一部分都不能放弃。分数线为 2026 年数据，每年浮动，只用来定目标，不是 2027 年的保证线。</p>
+    </div>
+    <div class="card" style="margin-top:10px">
+      <h3 style="margin:0 0 4px;font-size:16.5px">专业组一全部 6 个专业 · 2026 年录取线</h3>
+      <p class="calc-note" style="margin:0 0 8px">同一个专业组共用同一套职测试卷（通识 + A 类）。组内按专业志愿优先录取，第一志愿填面点，后面几个志愿的顺序就按这张表来排——既看 2026 年热度，也看她愿不愿意读。</p>
+      <table>
+        <tr><th>专业（专业组一 · 湘菜与食品）</th><th class="n">2026 录取线</th><th class="n">与面点差</th></tr>
+        <tr style="background:var(--brand-soft)"><td><b>中西面点工艺 ★ 她的目标</b></td><td class="n"><b>487</b></td><td class="n">—</td></tr>
+        <tr><td>西式烹饪工艺</td><td class="n">479</td><td class="n">低 8 分</td></tr>
+        <tr><td>食品营养与健康</td><td class="n">476</td><td class="n">低 11 分</td></tr>
+        <tr><td>烹饪工艺与营养</td><td class="n">472</td><td class="n">低 15 分</td></tr>
+        <tr><td>餐饮智能管理</td><td class="n">468</td><td class="n">低 19 分</td></tr>
+        <tr><td>食品智能加工技术</td><td class="n">460</td><td class="n">低 27 分</td></tr>
+      </table>
+      <p class="calc-note" style="margin-top:10px">怎么用这张表：如果按 2026 年的线，她的学考 256 分对应各专业所需职测分别是——面点 231、西式烹饪 223、食品营养与健康 220、烹饪工艺与营养 216、餐饮智能管理 212、食品智能加工技术 204 分。线越低不等于越好填：先把她真愿意读的排前面，不愿意读的不要为了“保底”乱填，录取了就不能再参加高考。2027 年计划和分数线以当年章程为准。</p>
+    </div>
+    <div class="rule"><span class="n">!</span><p><b>先记住三条红线：</b>① 没完成湖南省高考报名就没有单招资格；② 单招录取确认后不能再参加 6 月高考；③ 这所学校组内按专业志愿优先录取，<b>第一专业志愿就填中西面点工艺</b>。</p></div>
+  </section>
+
+  <!-- ===== 考试结构 ===== -->
+  <section id="struct">
+    <h2><span class="no">02</span>专业组一考试结构</h2>
+    <p class="sec-sub">依据《长沙商贸旅游职业技术学院单独招生考试大纲 · 职业技能测试 专业组一》（按湖南省教育厅湘教发〔2026〕1 号文件和学校单招章程制定）与 2026 年组一测试试卷，两处口径一致。</p>
+    <div class="card">
+      <table>
+        <tr><th>项目</th><th class="n">内容</th></tr>
+        <tr><td>考试形式</td><td class="n">闭卷 · 机试（计算机随机抽题）</td></tr>
+        <tr><td>职测总分 / 时长</td><td class="n">300 分 / 90 分钟</td></tr>
+        <tr><td>试卷构成</td><td class="n">通识 150 分 + 专业基础 150 分</td></tr>
+        <tr><td>她实际作答</td><td class="n">第一部分（通识）+ 第二部分（A 类专业）</td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <table>
+        <tr><th>题型</th><th class="n">每题</th><th class="n">题量</th><th class="n">分值</th></tr>
+        <tr><td>单项选择题</td><td class="n">3 分</td><td class="n">60</td><td class="n">180</td></tr>
+        <tr><td>多项选择题</td><td class="n">4 分</td><td class="n">15</td><td class="n">60</td></tr>
+        <tr><td>判断题</td><td class="n">2 分</td><td class="n">30</td><td class="n">60</td></tr>
+        <tr class="sum"><td>合计</td><td class="n">/</td><td class="n">105</td><td class="n">300</td></tr>
+      </table>
+      <p class="calc-note" style="margin-top:10px">拆到她要答的两部分核对：通识 = 单选 30 + 判断 16 + 多选 7 = 53 题（90+32+28=150 分）；A 类专业 = 单选 30 + 判断 14 + 多选 8 = 52 题（90+28+32=150 分）；合计正好 105 题、300 分。90 分钟 105 题，平均不到 1 分钟一道，要练速度。</p>
+    </div>
+    <div class="rule"><span class="n">!</span><p><b>多选题最坑：</b>少选、多选、错选<b>均不得分</b>（试卷注意事项原文）——少选一个也丢整题 4 分。所以多选的成套知识点（如膳食宝塔五类、水溶性维生素）必须成组记牢，不能只记一半。</p></div>
+  </section>
+
+  <!-- ===== 大纲 ===== -->
+  <section id="outline">
+    <h2><span class="no">03</span>复习大纲（专业组一 · A 类）</h2>
+    <p class="sec-sub">以下逐条转录自考试大纲原文，只保留与她相关的部分：通识性职业技能测试 6 个方面 + 专业基础知识（二）A 类 16 条。</p>
+    <div class="card">
+      <div class="mod">
+        <h3><span class="k">模块一</span>通识性职业技能测试（150 分）</h3>
+        <ol class="outline">
+          <li><b>思想道德素质：</b>中国共产党第二十次全国代表大会精神、党的二十届四中全会精神、习近平新时代中国特色社会主义思想，公民意识、道德素质、法治意识、时事政治等。</li>
+          <li><b>人文知识素质：</b>语言表达、文学常识等。</li>
+          <li><b>科学素质：</b>知识积累、推理判断、科技常识等。</li>
+          <li><b>健康素质：</b>心理素质、安全意识等相关知识。</li>
+          <li><b>职业认知及社会适应素质：</b>对职业基本认知和选择职业类别的能力、社会责任意识、劳动实践能力、语言表达能力、团队协作能力、社会交往和适应能力等。</li>
+          <li><b>创新潜质和学习养成素养：</b>问题意识、创新意识、创新思维能力、创新方法运用能力、搜集资料能力和主动学习能力等。</li>
+        </ol>
+      </div>
+      <div class="mod">
+        <h3><span class="k">模块二</span>专业基础知识 · A 类（应届普通高中毕业生，150 分）</h3>
+        <ol class="outline">
+          <li>掌握现代营养学、食品原料学、食品卫生与安全学等基础知识。</li>
+          <li>掌握人体所需的各类营养素的生理功能、食物来源等基础知识。</li>
+          <li>掌握营养配餐基本职业素养与规范，包括<span class="key">膳食宝塔和膳食结构变化</span>等相关基础知识。</li>
+          <li>掌握常见食品原料的营养成分、营养价值、食用方法等基础知识。</li>
+          <li>掌握常见食品<span class="key">生物性污染、化学性污染以及物理性污染</span>的来源及危害。</li>
+          <li>掌握不同食品的适宜储存条件，食品加工过程中的卫生要求。</li>
+          <li>了解西式烹调方法基本常识、了解<span class="key">西餐风味流派及代表菜品</span>。</li>
+          <li>了解西餐厨房的常见布局和各类设备的使用方法；掌握西餐烹饪中常用的刀法及其运用技巧。</li>
+          <li>了解选择中西餐烹饪原料的意义与原则，熟悉中西烹饪原料的分类及鉴别方法。</li>
+          <li>了解西餐煎、烤、炸、烩等常用的烹调方法概念、原理与应用原则。</li>
+          <li>熟悉西餐菜肴的色、香、味、形组配原则，掌握火候控制在西餐烹饪中的重要性及实践技巧。</li>
+          <li>掌握烹饪热传递的基本原理及对烹饪原料的影响，掌握各种刀法的运刀方法和不同火候对不同菜肴烹制的作用。</li>
+          <li>掌握烹饪制作过程中的烹饪技法对不同菜肴的作用，掌握相同食材不同烹饪技法的制作原理。</li>
+          <li>了解厨房岗位职责的工作范畴。</li>
+          <li>熟悉不同刀法加工不同性质的原料的方法；掌握运用各种刀法对原料进行加工的方法。</li>
+          <li>餐饮服务的概念，餐饮产品的特点，酒水知识。</li>
+        </ol>
+        <div class="okbox">看出重点：A 类专业部分<b>不考中餐面点操作本身</b>，考的是营养学、食品原料与卫生安全、膳食宝塔配餐，再加西餐烹饪基础（流派、刀工、火候、热传递）。复习按这个顺序排：营养与卫生占大头，西餐基础其次。</div>
+      </div>
+    </div>
+    <div class="card">
+      <h3 style="margin:0 0 8px;font-size:16.5px">大纲参考书目（共 9 本，<span class="star">★</span> 为与她最相关）</h3>
+      <ol class="books">
+        <li><span class="star">★</span>《食品营养与卫生》，杨潇、李兴武，郑州大学出版社，2020 年。<span class="isbn">ISBN 9787564569358</span></li>
+        <li><span class="star">★</span>《营养配餐与设计》，王其梅、王瑞，中国轻工业出版社，2020 年。<span class="isbn">ISBN 9787518432073</span></li>
+        <li>《烹调工艺基础》，苏爱国、许磊、段辉煌，华中科技大学出版社，2021 年 9 月。<span class="isbn">ISBN 9787568073714</span></li>
+        <li>《中式烹调师（初级中级）》，中国劳动社会保障出版社，2020 年 12 月。<span class="isbn">ISBN 9787516746141</span></li>
+        <li>《西餐热菜制作》，闫文胜，高等教育出版社，2021 年。<span class="isbn">ISBN 9787040549614</span></li>
+        <li>《西餐原料知识》，江永丰，高等教育出版社，2017 年。<span class="isbn">ISBN 9787040472707</span></li>
+        <li><span class="star">★</span>《西式面点工艺与实训（第三版）》，钟志惠，科学出版社，2020 年。<span class="isbn">ISBN 9787030648341</span></li>
+        <li><span class="star">★</span>《中式面点工艺》，赵银红，中国轻工业出版社，2024 年。<span class="isbn">ISBN 9787518443918</span></li>
+        <li>《餐饮服务与管理》（第二版），樊平、李琦，高等教育出版社，2019 年。<span class="isbn">ISBN 9787040526615</span></li>
+      </ol>
+      <p class="calc-note">不用 9 本全买：先用前两本营养类打底（对应专业题的最大块），面点两本是她入学后也要用的，可以先借或买二手。</p>
+    </div>
+  </section>
+
+  <!-- ===== 高频考点 ===== -->
+  <section id="focus">
+    <h2><span class="no">04</span>高频考点：从这套 2026 真题里归纳</h2>
+    <p class="sec-sub">把下面这套卷的 A 类专业 52 题按知识点归类后，反复出现的就是这些。先背数字和成套概念，再刷题。</p>
+    <div class="freq">
+      <div class="f"><b>膳食宝塔（2022）数字必背：</b>共 5 层；最底层是谷薯类、摄入量最大；成年人每天食盐不超过 5 克；近年膳食结构趋势是谷类摄入下降、动物性食物和油脂摄入上升。</div>
+      <div class="f"><b>温度数字必背：</b>食品冷藏 0～4℃；冷冻 −18℃ 以下；食物烧熟煮透中心温度达到 70℃ 以上（出自 A 类多选题选项）。</div>
+      <div class="f"><b>营养素成套记：</b>蛋白质基本单位是氨基酸（20 余种，成人必需氨基酸 8 种）；供能营养素只有蛋白质、脂类、碳水化合物；脂溶性维生素 A、D、E、K，水溶性是 B 族和 C；缺铁 → 缺铁性贫血；膳食纤维促进肠道蠕动、防便秘；鸡蛋是优质蛋白代表。</div>
+      <div class="f"><b>食品安全反复考：</b>生熟分开（分开存放、刀/砧板/容器分开）是防交叉污染和细菌性食物中毒的关键；黄曲霉毒素最易污染花生、玉米等粮油作物且耐热、加热煮沸不能完全破坏；亚硝酸盐可赋色抑菌但过量中毒并有致癌风险；未烧熟的四季豆中毒是因皂素和植物血凝素未被破坏；生大豆的胰蛋白酶抑制剂靠充分加热去除。</div>
+      <div class="f"><b>西餐流派对应：</b>意式—意大利面、玛格丽特比萨；法式—马赛鱼汤；俄式—罗宋汤、鱼子酱；红葡萄酒配红肉、白葡萄酒配白肉和海鲜。</div>
+      <div class="f"><b>西餐技法与刀工：</b>煎 = 少量油脂；烩 = 先煎炒上色、再加少量汤汁加盖小火慢制、成品酥烂带汁；热量传递三种方式是传导、对流、辐射；细丝成形是朱利安（Julienne，约 3 毫米见方、长 3～5 厘米）；主厨刀用途最广；保温汤池（隔水保温炉）长时间恒温保存汤汁酱汁。</div>
+      <div class="f"><b>通识部分别丢分：</b>现行宪法 1982 年颁布施行；成语和错别字题（如「一筹莫展」「迫不及待」「破釜沉舟」「金榜题名」才是正确写法，卷子里印的是错的，就是考点）；请假条结尾写「此致 敬礼」并署名、写明日期；告知讲座用「通知」文体。</div>
+    </div>
+  </section>
+
+  <!-- ===== 练习 ===== -->
+  <section id="quiz">
+    <h2><span class="no">05</span>整套练习：她要答的 105 题</h2>
+    <p class="sec-sub">题目逐字转录自《2026 年单独招生职业技能测试（专业组一）测试试卷》：第一部分通识 53 题 + 第二部分 A 类专业 52 题。点选项立刻判对错；多选题先点好再按「确认」。原卷未附答案，下方答案为按大纲与教材常识逐题核对的参考答案，只用于自查。</p>
+    <div class="qbar" id="partBar">
+      <button class="qbtn on" data-part="all" type="button">全部 105 题</button>
+      <button class="qbtn" data-part="g" type="button">通识 53 题</button>
+      <button class="qbtn" data-part="a" type="button">A 类专业 52 题</button>
+    </div>
+    <div class="qbar" id="typeBar">
+      <button class="qbtn on" data-type="all" type="button">全部题型</button>
+      <button class="qbtn" data-type="s" type="button">单选</button>
+      <button class="qbtn" data-type="m" type="button">多选</button>
+      <button class="qbtn" data-type="j" type="button">判断</button>
+      <button class="qbtn" id="resetBtn" type="button">重新练习</button>
+    </div>
+    <p class="qstat" id="qstat"></p>
+    <div id="qlist"></div>
+  </section>
+
+  <!-- ===== 填报要点 ===== -->
+  <section id="tips">
+    <h2><span class="no">06</span>填报与备考要点</h2>
+    <div class="card">
+      <ul class="tips">
+        <li><b>志愿只盯专业组一。</b>中西面点工艺在专业组一，第一专业志愿填它；同组另外 5 个专业（西式烹饪工艺 479、食品营养与健康 476、烹饪工艺与营养 472、餐饮智能管理 468、食品智能加工技术 460，均为 2026 年录取线）按第 01 节的对比表排顺序：先排她愿意读的，再参考分数从高到低排，最终以 2027 年章程和招生计划为准。</li>
+        <li><b>时间按 2026 年节奏估：</b>1 月下旬学校公布单招章程，2 月下旬至 3 月初在「潇湘高考」APP 填志愿，3 月中旬一志愿到校机试。2027 年正式安排未公布，以学校和省教育考试院公布为准，两个时间点都设提醒。</li>
+        <li><b>复习顺序：</b>先背第 04 节的数字与成套概念 → 做第 05 节的 105 题练习 → 错题对应回大纲条目重看 → 最后做一遍 90 分钟限时模拟。</li>
+        <li><b>通识不能裸考。</b>通识占 150 分，和专业一样重；时事政治（二十大、二十届四中全会）临考前再集中看一遍。</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    <p>资料来源：考试大纲与 2026 年测试试卷图片（长沙商贸旅游职业技术学院单独招生考试大纲·职业技能测试 专业组一；2026 年单独招生职业技能测试（专业组一）测试试卷），由用户提供、逐页转录核对；分数线来自湖南尚辰教育 2026 年 10 月 20 日单招整理文章（整理自学校招生信息）。原卷未附标准答案，本页参考答案为整理者按大纲与教材常识核对所得，如与学校官方答案不一致，以官方为准。2027 年章程、计划与分数线以学校及湖南省教育考试院正式公布为准。</p>
+    <a class="src-btn" href="https://mp.weixin.qq.com/s?__biz=Mzg5MDgzOTM1NQ==&amp;mid=2247509163&amp;idx=2&amp;sn=b57006ad6ff8630f5401b5d2b99474b7&amp;chksm=ce01e775a4e67f0de7ba86f23b3cd61863bf36a4691ae7497e80831a2ecd6e1ca5fe930d9c67&amp;mpshare=1&amp;srcid=1119gAa9TYyM0b5MPgU7kanW&amp;sharer_shareinfo=29dac34b0fea3ab3350ca704337af6d7&amp;sharer_shareinfo_first=29dac34b0fea3ab3350ca704337af6d7&amp;from=singlemessage&amp;scene=1&amp;subscene=10000&amp;clicktime=1795103019&amp;enterid=1795103019&amp;sessionid=0&amp;ascene=1&amp;fasttmpl_type=0&amp;fasttmpl_fullversion=8529624-zh_CN-zip&amp;fasttmpl_flag=0&amp;realreporttime=1795103019875&amp;devicetype=android-37&amp;version=28005038&amp;nettype=WIFI&amp;lang=zh_CN&amp;exportkey=n_ChQIAhIQKYH9W%2FbQSp%2BjG8AH%2FrITSBL2AQIE97dBBAEAAAAAAIXzIMvf%2BIkAAAAOpnltbLcz9gKNyK89dVj0ZLYwIMOZdEUs7jywANnmm9ShCpbe9uuWgURp40PZ%2F%2BSfdY6rWWjTH0VHCd8CB3WY2uV7ls%2F7%2F2XXgcvRbMdFHYbXumsSekF4yjLo%2FiYjZxppVG7lc0JNd%2BxspijThbAJC1I15xE0xCCw3RKxmWYWNheprQjUjkL23MPhL%2FwHOdPl1EbBdB4LhfIjpC4zloHGLEKwybbP6sL%2BqLGCkbwOvaYU7mKBi%2BoEsgXAUuKh%2Bq%2Fie75PbBU%2BdHr3G1Aemai1P8RHNTrk1xUBbQj9VLv5IQ%3D%3D&amp;pass_ticket=MNzeNGbqG6lBaAYUUsBag93nIuwS%2FcBPMSn3kMAaUvkuldzPS9jgmg449XVIkNzohKOuTBCpLlbv%2Bn5CdayV9w%3D%3D&amp;wx_header=3" target="_blank" rel="noopener">打开原文文章 →</a>
+    <p style="margin-top:14px">整理时间：2026 年 11 月 20 日 · 面点专版，可直接转发给她练习</p>
+  </footer>
+</div>
+
+<script>
+/* ---------- 分数试算（只针对中西面点工艺 487 分） ---------- */
+(function(){
+  var num=document.getElementById('scoreNum'),range=document.getElementById('scoreRange'),out=document.getElementById('calcOut');
+  function clamp(v){v=parseInt(v,10);if(isNaN(v))v=0;return Math.max(0,Math.min(300,v));}
+  function render(score){
+    var need=487-score;
+    if(need>300) out.innerHTML='学考 '+score+' 分 → 职测需 <b>'+need+' 分</b>，超过职测满分 300，按 2026 年的线达不到，需要学考更高才行。';
+    else if(need<=0) out.innerHTML='学考 '+score+' 分已达到 2026 年录取线 487 分。';
+    else out.innerHTML='学考 '+score+' 分 → 职测目标 <b>'+need+' 分</b>（占职测 300 分的 '+Math.round(need/300*100)+'%）。';
+  }
+  function sync(from){var v=clamp(from==='num'?num.value:range.value);num.value=v;range.value=v;render(v);}
+  num.addEventListener('input',function(){sync('num');});
+  num.addEventListener('change',function(){sync('num');});
+  range.addEventListener('input',function(){sync('range');});
+  render(256);
+})();
+
+/* ---------- 105 题练习 ---------- */
+var QS=[
+/* 通识·单选 30 */
+{p:"g",t:"s",q:"我国现行宪法颁布施行于（　　）",o:["1978 年","1982 年","1954 年","1975 年"],a:1,w:"现行宪法是 1982 年颁布施行的。"},
+{p:"g",t:"s",q:"下列属于我国公民基本义务的是（　　）",o:["随意放弃国籍","不遵守公共秩序","拒绝依法纳税","依法服兵役和参加民兵组织"],a:3,w:"依法服兵役和参加民兵组织是公民的基本义务。"},
+{p:"g",t:"s",q:"“中华人民共和国公民在法律面前一律平等”，对此理解正确的是（　　）",o:["未成年人可以不履行任何义务","国家机关工作人员不受法律约束","任何公民都平等地享有法定权利，平等地履行法定义务","社会地位高的人享有更多特权"],a:2,w:"平等指权利与义务的平等，不存在特权。"},
+{p:"g",t:"s",q:"从业人员在职业活动中做到“诚实守信”，最主要的表现是（　　）",o:["诚信可有可无，能获利就行","忠于职守、信守承诺、不弄虚作假","只对上级讲诚信","为提高业绩夸大产品功效"],a:1,w:"诚实守信的核心是信守承诺、不弄虚作假。"},
+{p:"g",t:"s",q:"路口红灯亮起时，即使没有车辆经过也坚持等候，这主要体现了（　　）",o:["做事不懂得变通","毫无意义的等待","盲目从众的心理","遵守规则的意识和对生命的尊重"],a:3,w:"无人时仍守规则，体现规则意识与对生命的尊重。"},
+{p:"g",t:"s",q:"下列句子中成语使用正确的一项是（　　）",o:["这道题他一挥而就，足足思考了三个小时","他的演讲抑扬顿挫，真是巧夺天工","同学们对这次春游望眼欲穿，纷纷表示反对","他对工作一丝不苟，深受同事好评"],a:3,w:"A 中“一挥而就”与“思考三小时”矛盾；B“巧夺天工”形容人工技艺，不能形容演讲；C“望眼欲穿”是盼望迫切，与“反对”矛盾。"},
+{p:"g",t:"s",q:"下列各组词语中没有错别字的一项是（　　）",o:["再接再厉　川流不息　谈笑风生","一愁莫展　按步就班　走头无路","甘败下风　迫不急待　破斧沉舟","金榜提名　一如继往　世外桃园"],a:0,w:"正确写法：一筹莫展、按部就班、走投无路、甘拜下风、迫不及待、破釜沉舟、金榜题名、一如既往、世外桃源。"},
+{p:"g",t:"s",q:"写一张请假条，结尾一般应写（　　）",o:["“此致　敬礼”，并署名、写明日期","“特此通知”","“望速归还”","“欢迎光临”"],a:0,w:"请假条结尾写“此致 敬礼”，并署名、注明日期。"},
+{p:"g",t:"s",q:"学生会准备向全校同学告知一场讲座的时间、地点和内容，最适宜采用的文体是（　　）",o:["申请书","通知","请假条","借条"],a:1,w:"向众人告知事项用“通知”。"},
+{p:"g",t:"s",q:"下列日常表达中最得体的一项是（　　）",o:["向老师请教时说：“老师，这道题我还不太明白，能请您再讲一遍吗？”","请同学帮忙时说：“喂，把那个给我拿过来！”","别人道歉时说：“这事儿我跟你没完。”","收到礼物时说：“这东西我不喜欢，你拿回去吧。”"],a:0,w:"其余三项语气生硬、不礼貌。"},
+{p:"g",t:"s",q:"夏天从冰箱里取出的饮料瓶外壁很快出现许多小水珠，这一现象属于（　　）",o:["汽化","升华","凝华","液化"],a:3,w:"空气中的水蒸气遇冷液化成小水珠。"},
+{p:"g",t:"s",q:"炒菜时油锅突然起火，最简便有效的处理方法是（　　）",o:["迅速往锅里泼一盆水","用扇子用力扇灭","马上端起油锅来回摇晃","立刻盖上锅盖并关闭燃气阀门"],a:3,w:"盖锅盖隔绝空气、关阀门断气源；油锅起火绝不能泼水。"},
+{p:"g",t:"s",q:"下列工具中属于省力杠杆的是（　　）",o:["钓鱼竿","镊子","开瓶器","筷子"],a:2,w:"开瓶器动力臂大于阻力臂；钓鱼竿、镊子、筷子都是费力杠杆。"},
+{p:"g",t:"s",q:"下列做法有利于保障食品安全的是（　　）",o:["把剩菜放在室温下过夜再食用","生食和熟食分开存放、分开加工","食用超过保质期的罐头","用同一块案板切生肉和熟食"],a:1,w:"生熟分开可防止交叉污染。"},
+{p:"g",t:"s",q:"下列材料属于有机合成材料的是（　　）",o:["羊毛","木材","塑料","棉花"],a:2,w:"塑料是三大有机合成材料之一；羊毛、棉花是天然材料。"},
+{p:"g",t:"s",q:"下列调节情绪的做法中，不恰当的是（　　）",o:["心情不好时向朋友倾诉","压力较大时参加体育锻炼","遇到烦恼时借酒消愁、迁怒他人","感到紧张时做几次深呼吸"],a:2,w:"借酒消愁、迁怒他人不利于情绪调节。"},
+{p:"g",t:"s",q:"关于学生宿舍安全用电，下列做法正确的是（　　）",o:["不使用电炉、电热杯等大功率违规电器","私拉乱接电线以方便使用","多个大功率电器共用一个插座","用毛巾盖住正在充电的手机"],a:0,w:"宿舍禁用大功率违规电器。"},
+{p:"g",t:"s",q:"下列预防近视的做法正确的是（　　）",o:["读写时保持“一尺一拳一寸”的姿势，连续用眼一段时间后远眺休息","在行驶的车上看书","躺在床上长时间玩手机","在昏暗的光线下看书"],a:0,w:"“一尺一拳一寸”并适时远眺休息。"},
+{p:"g",t:"s",q:"遭遇火灾需要穿过浓烟区域逃生时，正确的做法是（　　）",o:["躲进衣柜或床底等待","用湿毛巾捂住口鼻，弯腰低姿快速前行","直起身体大步奔跑","乘电梯迅速下楼"],a:1,w:"浓烟上浮，低姿前行并捂住口鼻；不能乘电梯。"},
+{p:"g",t:"s",q:"下列作息习惯有利于身心健康的是（　　）",o:["为了减肥长期不吃早餐","学习时长时间不吃不喝、久坐不动","每天按时就寝、早起，保证充足睡眠","经常熬夜打游戏，白天再补觉"],a:2,w:"规律作息、充足睡眠最有利健康。"},
+{p:"g",t:"s",q:"关于职业选择，下列说法正确的是（　　）",o:["职业选择与个人性格完全无关","应结合自身兴趣、能力特点和社会发展需要综合考虑","只需看收入高低，收入越高越好","一次选择决定终身，不能调整"],a:1,w:"职业选择要综合兴趣、能力与社会需要。"},
+{p:"g",t:"s",q:"小组合作完成一项任务时，最重要的是（　　）",o:["各自单独行动，互不沟通","只挑自己喜欢的环节做","明确分工、各负其责，相互配合沟通","把工作全部推给组长"],a:2,w:"分工负责、配合沟通是合作关键。"},
+{p:"g",t:"s",q:"下列做法体现了良好时间管理的是（　　）",o:["完全凭心情决定先做什么","按重要和紧急程度给任务排序，优先处理重要且紧急的事","所有事情都等到最后期限前一天再做","同时开始很多任务，每件都做一点点"],a:1,w:"按重要与紧急程度排序处理。"},
+{p:"g",t:"s",q:"学生参加社会实践和志愿服务活动，主要意义在于（　　）",o:["可以借此不去上课","仅仅是为了给简历增加内容","能够立刻获得高收入","了解社会、锻炼实践能力、增强责任意识"],a:3,w:"意义在了解社会、锻炼能力、增强责任意识。"},
+{p:"g",t:"s",q:"关于自我认知，下列说法正确的是（　　）",o:["只关注优点，不必理会缺点","认为自己一无是处","完全按他人的评价定义自己","既看到自己的优势，也正视不足并持续改进"],a:3,w:"既看优势也正视不足，才是正确自我认知。"},
+{p:"g",t:"s",q:"初次进入实习岗位，下列做法最恰当的是（　　）",o:["遵守规章制度，虚心请教，主动承担力所能及的工作","认为安排的工作太琐碎而拒绝去做","未经允许把单位内部资料发到网上","迟到早退，认为无伤大雅"],a:0,w:"守制度、虚心学、主动做。"},
+{p:"g",t:"s",q:"下列做法最能体现发散思维的是（　　）",o:["写作时整篇照抄范文","遇到难题立刻放弃","围绕“报纸有哪些用途”尽可能多地想出阅读、包装、吸水、做手工等不同答案","做数学题时只使用老师讲过的一种解法"],a:2,w:"从一点想出多种答案即发散思维。"},
+{p:"g",t:"s",q:"要查找“长沙市近年旅游业发展情况”的资料，最合适的途径是（　　）",o:["查阅统计部门发布的统计年鉴和权威媒体的公开报道","只看朋友圈转发的未证实的消息","完全依赖某一篇个人博客的说法","不做检索，凭印象直接写作"],a:0,w:"优先权威统计与官方报道。"},
+{p:"g",t:"s",q:"下列学习做法最有利于提高学习效率的是（　　）",o:["制定学习计划，课前预习、课上专注、课后及时复习巩固","平时不复习，考试前突击熬夜","一边刷短视频一边写作业","把错题抄一遍就不再回顾"],a:0,w:"预习—专注—复习的完整闭环最有效。"},
+{p:"g",t:"s",q:"关于“主动学习”，理解正确的是（　　）",o:["主动学习意味着不需要任何合作与交流","学习者自己发现问题、提出问题并主动寻求解决办法","主动学习就是完全不听老师讲课","主动学习只适用于大学生"],a:1,w:"主动学习是自己发现问题并主动解决。"},
+/* 通识·判断 16 */
+{p:"g",t:"j",q:"铁制品在干燥的空气中比在潮湿的空气中更容易生锈。",a:1,w:"潮湿空气中更易生锈，题干说反了。"},
+{p:"g",t:"j",q:"灭火器压力表指针指向红色区域，表示压力不足，应及时更换或重新充装。",a:0,w:"红区表示压力不足。"},
+{p:"g",t:"j",q:"用湿手触摸正在通电的电器开关，容易引发触电事故。",a:0,w:"湿手导电，易触电。"},
+{p:"g",t:"j",q:"为了多争取学习时间，中学生每天的睡眠时间越少越好。",a:1,w:"睡眠不足损害健康与学习效率。"},
+{p:"g",t:"j",q:"长时间近距离用眼后，到室外远眺或做眼保健操，有助于缓解视疲劳。",a:0,w:"远眺可放松睫状肌、缓解疲劳。"},
+{p:"g",t:"j",q:"“他的写作水平明显改进了”这句话没有语病。",a:1,w:"“水平”应与“提高”搭配，“改进”搭配不当，有语病。"},
+{p:"g",t:"j",q:"水结成冰后，质量不变，体积变小。",a:1,w:"水结冰后体积变大。"},
+{p:"g",t:"j",q:"在团队中，成员的角色和分工各不相同，但都对团队目标的实现负有责任。",a:0,w:"分工不同、责任共同。"},
+{p:"g",t:"j",q:"学习中遇到不懂的问题，主动查阅资料或向他人请教，是良好学习习惯的表现。",a:0,w:"主动查问是良好习惯。"},
+{p:"g",t:"j",q:"职业道德只对在岗职工有要求，与普通在校学生无关。",a:1,w:"学生也应培养职业道德意识。"},
+{p:"g",t:"j",q:"创新只是科学家和发明家的事，与普通人没有关系。",a:1,w:"创新与每个人都有关。"},
+{p:"g",t:"j",q:"与人交谈时注视对方、耐心倾听，是尊重他人的表现。",a:0,w:"注视与倾听体现尊重。"},
+{p:"g",t:"j",q:"我国公民既享有宪法和法律规定的权利，也必须履行宪法和法律规定的义务，权利和义务具有一致性。",a:0,w:"权利与义务相一致。"},
+{p:"g",t:"j",q:"遇到矛盾纠纷时，用暴力方式报复对方是维护自身权益的正当行为。",a:1,w:"维权须走合法途径，暴力报复不正当。"},
+{p:"g",t:"j",q:"一张完整的“通知”，一般包括标题、称呼、正文、落款和日期几个部分。",a:0,w:"通知一般含标题、称呼（主送对象）、正文、落款和日期。"},
+{p:"g",t:"j",q:"职业规划一旦确定就绝对不能改变，否则就是没有主见。",a:1,w:"职业规划可随情况调整。"},
+/* 通识·多选 7 */
+{p:"g",t:"m",q:"下列属于良好学习习惯的有（　　）",o:["课前预习，带着问题听课","课堂上做好笔记并及时整理","建立错题本并定期回顾","每天安排固定学习时间，保持专注"],a:[0,1,2,3],w:"四项都是良好学习习惯，全选。"},
+{p:"g",t:"m",q:"下列关于常见应用文的说法正确的有（　　）",o:["借条正文可以不写归还日期","通知一般要写清时间、地点和参加人员","请假条应写明请假事由和请假天数","启事通常包括标题、正文和落款"],a:[1,2,3],w:"借条应写明归还日期，A 错。"},
+{p:"g",t:"m",q:"下列做法有助于保持心理健康的有（　　）",o:["遇到挫折时主动与老师、家长或同学沟通","把所有烦恼都憋在心里，从不向他人诉说","合理安排学习与休息，培养一项体育或艺术爱好","正确认识自己，接纳自己的优点和不足"],a:[0,2,3],w:"把烦恼憋在心里不利于心理健康，B 错。"},
+{p:"g",t:"m",q:"下列做法有助于培养创新能力的有（　　）",o:["对日常事物多问几个“为什么”和“还有别的办法吗”","广泛阅读，注意积累不同领域的知识","认为书本和老师讲的都是唯一正确答案","敢于尝试新方法，并从失败中总结经验"],a:[0,1,3],w:"迷信唯一答案会束缚创新，C 错。"},
+{p:"g",t:"m",q:"下列行为中符合社会公德要求的有（　　）",o:["在公共场所排队等候，不插队","乘车时主动给老弱病残孕乘客让座","爱护公共设施，不损坏路灯和座椅","在图书馆阅览区大声接打电话"],a:[0,1,2],w:"图书馆大声打电话违反公德，D 错。"},
+{p:"g",t:"m",q:"下列属于安全用电正确做法的有（　　）",o:["发现有人触电时，先切断电源再施救","不用湿布擦拭正在工作的电器","用铜丝或铁丝代替保险丝","更换灯泡前先断开开关"],a:[0,1,3],w:"保险丝不能用铜丝、铁丝代替，C 错。"},
+{p:"g",t:"m",q:"下列属于良好团队合作行为的有（　　）",o:["意见不同时拒绝沟通，坚持按自己的方式做","按时完成自己承担的任务，不拖延","主动帮助工作中遇到困难的同事","出现问题时先从自身找原因，不相互埋怨"],a:[1,2,3],w:"拒绝沟通不是合作行为，A 错。"},
+/* A类专业·单选 30 */
+{p:"a",t:"s",q:"蛋白质的基本组成单位是（　　）",o:["葡萄糖","脂肪酸","核苷酸","氨基酸"],a:3,w:"蛋白质由氨基酸组成。"},
+{p:"a",t:"s",q:"人体所需能量最主要、最经济的来源是（　　）",o:["碳水化合物","蛋白质","维生素","矿物质"],a:0,w:"碳水化合物是最主要、最经济的能量来源。"},
+{p:"a",t:"s",q:"人体不能自行合成、必须由食物供给的必需脂肪酸，其主要食物来源是（　　）",o:["谷物淀粉","植物油","动物油脂","精制糖"],a:1,w:"必需脂肪酸主要来自植物油。"},
+{p:"a",t:"s",q:"下列维生素中属于脂溶性维生素的是（　　）",o:["维生素 A","维生素 B1","维生素 B2","维生素 C"],a:0,w:"脂溶性维生素是 A、D、E、K；B 族和 C 是水溶性。"},
+{p:"a",t:"s",q:"人体长期缺铁最容易引起的疾病是（　　）",o:["坏血病","佝偻病","缺铁性贫血","夜盲症"],a:2,w:"缺铁引起缺铁性贫血；坏血病缺维生素 C，夜盲症缺维生素 A。"},
+{p:"a",t:"s",q:"膳食纤维最主要的生理功能是（　　）",o:["构成人体组织的主要材料","以促进钙铁等矿物质吸收为主","促进肠道蠕动、增加粪便体积、预防便秘","为人体提供大量能量"],a:2,w:"膳食纤维主攻肠道：促蠕动、防便秘。"},
+{p:"a",t:"s",q:"下列食物中，蛋白质含量高且氨基酸组成接近人体需要、属于优质蛋白质的是（　　）",o:["肥猪肉","鸡蛋","大米","土豆"],a:1,w:"鸡蛋蛋白是优质蛋白的代表。"},
+{p:"a",t:"s",q:"生大豆中含有胰蛋白酶抑制剂等抗营养因子，去除其活性的有效方法是（　　）",o:["加醋后直接凉拌","反复清水淘洗","充分加热煮熟","长时间冷水浸泡"],a:2,w:"胰蛋白酶抑制剂不耐热，充分加热即可去除。"},
+{p:"a",t:"s",q:"猪、牛等畜肉中，肉质最细嫩、结缔组织最少的部位是（　　）",o:["颈部肉","里脊（背最长肌）","前腿肉","后腿肉"],a:1,w:"里脊运动最少，最细嫩。"},
+{p:"a",t:"s",q:"与畜肉相比，鱼类脂肪的显著特点是（　　）",o:["几乎完全不含脂肪","胆固醇含量一定高于畜肉","不饱和脂肪酸含量高，海鱼还富含 EPA 和 DHA","饱和脂肪酸含量高于畜肉"],a:2,w:"鱼脂以不饱和脂肪酸为主，海鱼富含 EPA、DHA。"},
+{p:"a",t:"s",q:"鉴别鸡蛋新鲜程度最常用的方法是（　　）",o:["蛋黄颜色越浅说明鸡蛋越新鲜","投入清水中观察，新鲜蛋下沉且照蛋时气室很小","蛋壳颜色越深说明鸡蛋越新鲜","摇晃时发出明显响声说明鸡蛋新鲜"],a:1,w:"新鲜蛋密度大、下沉，气室小；摇晃有响声反而不新鲜。"},
+{p:"a",t:"s",q:"黄曲霉毒素最容易污染的食物是（　　）",o:["新鲜叶菜","巴氏杀菌乳","冷冻水产品","花生、玉米等粮油作物及其制品"],a:3,w:"黄曲霉毒素最易污染花生、玉米等粮油作物。"},
+{p:"a",t:"s",q:"细菌性食物中毒最常见的发生条件是（　　）",o:["食品始终保存在 0℃以下","食品完全未经任何加工","食品加工中加入了较多的食盐","食品被致病菌污染后在适宜温度下存放较久，细菌大量繁殖"],a:3,w:"污染 + 适宜温度 + 存放较久，细菌大量繁殖才易中毒。"},
+{p:"a",t:"s",q:"食品冷藏的适宜温度一般是（　　）",o:["25～30℃","0～4℃","−18℃以下","10～20℃"],a:1,w:"冷藏 0～4℃；−18℃以下 是冷冻。"},
+{p:"a",t:"s",q:"亚硝酸盐在肉制品加工中的作用及其风险是（　　）",o:["完全无毒无害，可以随意添加","只能用于蔬菜，不能用于肉类","可赋色、抑制肉毒梭菌并形成特有风味，但过量残留会引起中毒并有致癌风险","只增加重量，没有任何工艺作用"],a:2,w:"亚硝酸盐能赋色抑菌，但过量中毒并有致癌风险，必须限量。"},
+{p:"a",t:"s",q:"下列操作中，预防交叉污染最有效的措施是（　　）",o:["生食品与熟食品分开存放，刀、砧板、容器分开使用","加工完生肉后直接用同一刀具切配熟食","用同一块抹布依次擦拭所有操作台面","冷藏时将熟食放在生食的下方"],a:0,w:"生熟分开存放、工具分开使用。"},
+{p:"a",t:"s",q:"中国居民平衡膳食宝塔（2022）自下而上共分为（　　）层",o:["3","4","6","5"],a:3,w:"2022 版膳食宝塔共 5 层。"},
+{p:"a",t:"s",q:"中国居民平衡膳食宝塔（2022）中位于最底层、推荐摄入量最大的食物类别是（　　）",o:["鱼禽蛋瘦肉等动物性食物","奶类、大豆和坚果类","谷薯类","蔬菜水果类"],a:2,w:"最底层是谷薯类，摄入量最大。"},
+{p:"a",t:"s",q:"《中国居民膳食指南（2022）》建议成年人每天食盐摄入量不超过（　　）",o:["10 克","15 克","20 克","5 克"],a:3,w:"2022 版指南建议每天食盐不超过 5 克。"},
+{p:"a",t:"s",q:"近年来我国居民膳食结构变化的主要趋势是（　　）",o:["谷类食物摄入大幅上升，动物性食物摄入下降","食盐摄入量已降至极低水平","蔬菜水果摄入量已远超推荐标准","谷类食物摄入下降，动物性食物和油脂摄入上升"],a:3,w:"趋势是谷类下降、动物性食物和油脂上升。"},
+{p:"a",t:"s",q:"下列菜品中，属于意式菜代表的是（　　）",o:["意大利面与玛格丽特比萨","马赛鱼汤","罗宋汤","圣诞布丁"],a:0,w:"马赛鱼汤是法式，罗宋汤是俄式，圣诞布丁是英式。"},
+{p:"a",t:"s",q:"下列菜品中，属于俄式菜代表的是（　　）",o:["罗宋汤（红菜汤）与鱼子酱","马赛鱼汤与鹅肝","比萨与通心粉","烤牛肉与约克郡布丁"],a:0,w:"罗宋汤与鱼子酱是俄式代表。"},
+{p:"a",t:"s",q:"西餐中“煎”这一烹调方法所使用的传热介质是（　　）",o:["水蒸气","少量油脂","大量油脂并将原料完全浸没","大量清水"],a:1,w:"煎用少量油脂；大量油浸没是炸。"},
+{p:"a",t:"s",q:"西餐“烩”这一烹调方法的主要特点是（　　）",o:["直接用明火将原料烤至表面焦香","原料不经任何加热直接食用","原料先煎炒上色，再加少量汤汁加盖小火慢制，成品酥烂带汁","用大量热油将原料炸至金黄酥脆"],a:2,w:"烩：先上色，后加少量汤汁小火慢制，酥烂带汁。"},
+{p:"a",t:"s",q:"西餐厨房中，用于长时间恒温保存汤汁、酱汁的设备是（　　）",o:["隔水保温炉（保温汤池）","扒炉","油炸炉","万能蒸烤箱"],a:0,w:"保温汤池（隔水保温炉）恒温保存汤汁酱汁。"},
+{p:"a",t:"s",q:"西餐刀工中，将原料切成约三毫米见方、长三到五厘米细丝的成形方法是（　　）",o:["剁末（Mince）","朱利安（Julienne）","切丁（Dice）","切块（Cube）"],a:1,w:"细丝成形叫朱利安（Julienne）。"},
+{p:"a",t:"s",q:"西餐厨房中用途最广泛、可用于切丝、切片、剁碎等多种操作的刀具是（　　）",o:["主厨刀","削皮刀","面包刀","剔骨刀"],a:0,w:"主厨刀用途最广。"},
+{p:"a",t:"s",q:"烹饪过程中热量传递的三种基本方式是（　　）",o:["传导、对流和辐射","蒸发、沸腾和凝固","溶解、乳化和糊化","氧化、还原和中和"],a:0,w:"热传递三方式：传导、对流、辐射。"},
+{p:"a",t:"s",q:"西餐煎制牛排时先用大火煎封表面、再转中火加热，其主要目的是（　　）",o:["使牛排尽可能多地吸入油脂","表面迅速焦化产生香气并减少汁液流失，内部缓慢受热保持嫩度","尽可能节省燃料消耗","让牛排内部更快降温"],a:1,w:"先封表面锁汁生香，再慢热保嫩。"},
+{p:"a",t:"s",q:"与一般有形产品相比，餐饮服务最显著的特点是（　　）",o:["可以大量生产后长期储存再销售","质量标准完全统一，不受服务人员状态影响","整个服务过程不需要与顾客直接接触","无形性、不可储存性，且生产、销售与消费同时进行"],a:3,w:"餐饮服务无形、不可储存，生产销售消费同时进行。"},
+/* A类专业·判断 14 */
+{p:"a",t:"j",q:"生熟分开是预防细菌性食物中毒的关键措施之一，包括分开存放、分开使用加工用具。",a:0,w:"生熟分开是防中毒的关键措施。"},
+{p:"a",t:"j",q:"维生素 C 属于脂溶性维生素，摄入过多容易在体内大量蓄积并引起中毒。",a:1,w:"维生素 C 是水溶性维生素，不是脂溶性。"},
+{p:"a",t:"j",q:"食品经零下十八摄氏度以下冷冻，可以杀灭其中全部微生物，解冻后与新鲜食品毫无差别。",a:1,w:"冷冻只能抑制微生物，不能杀灭全部，品质也会变化。"},
+{p:"a",t:"j",q:"大豆及其制品是植物性食物中蛋白质含量较高、质量较好的一类食物。",a:0,w:"大豆是植物蛋白中量高质优的一类。"},
+{p:"a",t:"j",q:"配餐时讲究食物多样化，是实现膳食平衡、满足人体全面营养需要的基本原则。",a:0,w:"食物多样化是膳食平衡的基本原则。"},
+{p:"a",t:"j",q:"西餐中的“炸”和“煎”都是用大量油脂把原料完全浸没再加热的烹调方法。",a:1,w:"煎只用少量油脂，只有炸是大量油浸没。"},
+{p:"a",t:"j",q:"餐饮服务中通常讲究红葡萄酒配红肉、白葡萄酒配白肉和海鲜。",a:0,w:"红配红、白配白是通行搭配原则。"},
+{p:"a",t:"j",q:"中国居民平衡膳食宝塔建议谷薯类位于宝塔最顶层，每天摄入量应当最少。",a:1,w:"谷薯类在最底层，摄入量最大，题干说反了。"},
+{p:"a",t:"j",q:"适当增加膳食纤维、减少精制糖摄入，有助于延缓餐后血糖上升的速度。",a:0,w:"膳食纤维可延缓血糖上升。"},
+{p:"a",t:"j",q:"在西餐厨房中，切配生肉和即食沙拉可以使用同一块砧板，只要事后清洗干净即可。",a:1,w:"生肉与即食食品必须分开砧板，防止交叉污染。"},
+{p:"a",t:"j",q:"只要把霉变的粮油彻底加热煮沸，黄曲霉毒素就会被完全破坏，可以放心食用。",a:1,w:"黄曲霉毒素耐热，加热煮沸不能完全破坏，霉变粮油不能吃。"},
+{p:"a",t:"j",q:"用扒条炉炙烤原料时，原料与高温金属炉条直接接触形成焦纹，属于传导方式传热。",a:0,w:"直接接触传热属于传导。"},
+{p:"a",t:"j",q:"火候仅指烹饪时火力的大小，与加热时间的长短没有关系。",a:1,w:"火候既包括火力大小，也包括加热时间长短。"},
+{p:"a",t:"j",q:"构成人体蛋白质的氨基酸有二十余种，其中成人的必需氨基酸为八种。",a:0,w:"氨基酸 20 余种，成人必需氨基酸 8 种。"},
+/* A类专业·多选 8 */
+{p:"a",t:"m",q:"中国居民平衡膳食宝塔（2022）所包含的食物类别有（　　）",o:["谷薯类","蔬菜水果类","鱼、禽、蛋、瘦肉等动物性食物","奶类、大豆和坚果类"],a:[0,1,2,3],w:"宝塔五层对应的类别全选（油盐在塔尖单列，本题四项都属于宝塔食物类别）。"},
+{p:"a",t:"m",q:"下列措施中，有利于预防细菌性食物中毒的有（　　）",o:["生熟分开，避免交叉污染","熟食在室温下长时间存放","食物烧熟煮透，中心温度达到七十摄氏度以上","剩余食物及时冷藏，食用前彻底加热"],a:[0,2,3],w:"熟食室温长时间存放易繁殖细菌，B 错。"},
+{p:"a",t:"m",q:"下列维生素中，属于水溶性维生素的有（　　）",o:["维生素 B1","维生素 B2","维生素 A","维生素 C"],a:[0,1,3],w:"维生素 A 是脂溶性，C 错。"},
+{p:"a",t:"m",q:"关于食品的适宜储存条件，下列说法正确的有（　　）",o:["所有食品都可以放入冷冻室长期保藏","冷藏温度一般控制在 0～4℃，可延缓微生物繁殖","冷冻温度一般控制在 −18℃ 以下，可较长时间保藏","粮食、干货应存放在阴凉、干燥、通风处"],a:[1,2,3],w:"并非所有食品都适合冷冻长期保藏，A 错。"},
+{p:"a",t:"m",q:"下列营养素中，能够在人体内氧化分解并为人体提供能量的有（　　）",o:["蛋白质","脂类","碳水化合物","维生素"],a:[0,1,2],w:"供能营养素只有蛋白质、脂类、碳水化合物；维生素不供能。"},
+{p:"a",t:"m",q:"下列西餐菜品与其所属风味流派对应正确的有（　　）",o:["寿司与刺身——英式菜","马赛鱼汤——法式菜","罗宋汤——俄式菜","意大利面与比萨——意式菜"],a:[1,2,3],w:"寿司与刺身是日式菜，A 错。"},
+{p:"a",t:"m",q:"下列西餐烹调方法中，属于以干热方式传热的有（　　）",o:["烤","扒","炸","蒸"],a:[0,1,2],w:"蒸以水蒸气传热，属湿热方式，D 错。"},
+{p:"a",t:"m",q:"关于西餐刀工与刀法的运用，下列说法正确的有（　　）",o:["切丁要求原料大小一致、成形规整，以保证受热均匀、成熟一致","切细丝通常先将原料切成薄片，再叠片改刀成丝","所有原料都必须逆着肌肉纹理切，这样口感才最嫩","应根据原料性质选择刀法，如质地较老的肉宜顶丝横切以缩短纤维"],a:[0,1,3],w:"“所有原料都必须”说法绝对，C 错；刀法要按原料性质选择。"}
+];
+(function(){
+  var list=document.getElementById('qlist'),stat=document.getElementById('qstat');
+  var fPart='all',fType='all';
+  var state={}; /* idx -> {done:bool, ok:bool, sel:[]} */
+  var letters=['A','B','C','D'];
+  function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+  function typeName(t){return t==='s'?'单选题 · 3 分':(t==='m'?'多选题 · 4 分':'判断题 · 2 分');}
+  function typeCls(t){return t==='s'?'':(t==='m'?' m':' j');}
+  function partName(p){return p==='g'?'通识性职业技能测试':'专业基础知识（A 类）';}
+  function ansText(q){
+    if(q.t==='j') return q.a===0?'√ 正确':'× 错误';
+    if(q.t==='m') return q.a.map(function(i){return letters[i];}).join('、');
+    return letters[q.a];
+  }
+  /* 预计算每题在所属（部分+题型）内的序号 */
+  var counters={},nums=[];
+  QS.forEach(function(q,i){var k=q.p+q.t;counters[k]=(counters[k]||0)+1;nums[i]=counters[k];});
+  function render(){
+    var html='',shown=0,done=0,ok=0;
+    QS.forEach(function(q,i){
+      var st=state[i]||{done:false,sel:[]};
+      if(st.done){done++;if(st.ok)ok++;}
+      if(fPart!=='all'&&q.p!==fPart)return;
+      if(fType!=='all'&&q.t!==fType)return;
+      shown++;
+      var opts=q.t==='j'?['√ 正确','× 错误']:q.o;
+      html+='<div class="q" data-i="'+i+'"><div class="qh"><span class="qn">'+partName(q.p)+' · 第 '+nums[i]+' 题</span><span class="qt'+typeCls(q.t)+'">'+typeName(q.t)+'</span></div>'
+        +'<p class="qs">'+esc(q.q)+'</p><div class="opts">';
+      opts.forEach(function(o,oi){
+        var cls='opt';
+        if(st.done){
+          var isAns=q.t==='m'?q.a.indexOf(oi)>=0:(q.a===oi);
+          var isSel=st.sel.indexOf(oi)>=0;
+          if(isAns)cls+=' right';else if(isSel)cls+=' wrong';
+        }else if(st.sel.indexOf(oi)>=0)cls+=' sel';
+        html+='<button type="button" class="'+cls+'" data-q="'+i+'" data-o="'+oi+'"'+(st.done?' disabled':'')+'>'+(q.t==='j'?esc(o):letters[oi]+'. '+esc(o))+'</button>';
+      });
+      html+='</div>';
+      if(q.t==='m'&&!st.done)html+='<button type="button" class="check" data-check="'+i+'">确认答案</button>';
+      if(st.done){
+        html+='<div class="ans show"><span class="a'+(st.ok?'':' bad')+'">'+(st.ok?'✓ 答对了':'✗ 答错了')+' · 参考答案：'+ansText(q)+'</span><br/><span class="why">'+esc(q.w)+'</span></div>';
+      }
+      html+='</div>';
+    });
+    list.innerHTML=html||'<p class="qempty">这个筛选下没有题目。</p>';
+    stat.innerHTML='当前显示 <b>'+shown+'</b> 题 · 已答 <b>'+done+'</b> / 105 · 答对 <b>'+ok+'</b> 题';
+  }
+  list.addEventListener('click',function(e){
+    var b=e.target.closest('button');if(!b)return;
+    if(b.hasAttribute('data-check')){
+      var qi=parseInt(b.getAttribute('data-check'),10),q=QS[qi],st=state[qi]||{sel:[]};
+      if(!st.sel||st.sel.length===0)return;
+      var sel=st.sel.slice().sort(),ans=q.a.slice().sort();
+      st.done=true;st.ok=JSON.stringify(sel)===JSON.stringify(ans);state[qi]=st;render();return;
+    }
+    if(b.hasAttribute('data-o')){
+      var i=parseInt(b.getAttribute('data-q'),10),o=parseInt(b.getAttribute('data-o'),10),qq=QS[i];
+      var s=state[i]||{done:false,sel:[]};
+      if(s.done)return;
+      if(qq.t==='m'){
+        var k=s.sel.indexOf(o);if(k>=0)s.sel.splice(k,1);else s.sel.push(o);state[i]=s;render();
+      }else{
+        s.sel=[o];s.done=true;s.ok=(qq.a===o);state[i]=s;render();
+      }
+    }
+  });
+  function bindBar(id,attr,fn){
+    document.getElementById(id).addEventListener('click',function(e){
+      var b=e.target.closest('button[data-'+attr+']');if(!b)return;
+      var btns=this.querySelectorAll('button[data-'+attr+']');
+      for(var j=0;j<btns.length;j++)btns[j].classList.remove('on');
+      b.classList.add('on');fn(b.getAttribute('data-'+attr));render();
+    });
+  }
+  bindBar('partBar','part',function(v){fPart=v;});
+  bindBar('typeBar','type',function(v){fType=v;});
+  document.getElementById('resetBtn').addEventListener('click',function(){state={};render();});
+  render();
+})();
+</script>
+</body>
+</html>
